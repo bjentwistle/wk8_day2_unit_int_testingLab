@@ -118,7 +118,7 @@ describe('Calculator', () => {
     fireEvent.click(buttonSubtract)
     const button3 = container.getByTestId("number3")
     fireEvent.click(button3)
-    const buttonClear = container.getByTestId("clear")
+    const buttonClear = container.getByTestId("clear") //clear button 
     fireEvent.click(buttonClear)
     const button1 = container.getByTestId("number1")
     fireEvent.click(button1)
