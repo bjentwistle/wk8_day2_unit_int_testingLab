@@ -31,4 +31,42 @@ describe("Calculator", () => {
     cy.get('#operator-equals').click();
     cy.get('.display').should('contain', '13')
   })
+
+  it("Is the output as expected for positive numbers", () => {
+    cy.get("#number8").click();
+    cy.get('.display').should("contain", "8")
+  })
+
+  it("Is the output as expected for negative numbers", () => {
+    cy.get("#number8").click();
+    cy.get('#operator-subtract').click();
+    cy.get('#number9').click();
+    cy.get('#operator-equals').click();
+    cy.get('.display').should("contain", "-1")
+  })
+
+  it("Is the output as expected for decimals", () => {
+    cy.get("#number8").click();
+    cy.get('#operator-divide').click();
+    cy.get('#number5').click();
+    cy.get('#operator-equals').click();
+    cy.get('.display').should("contain", "1.6")
+  })
+  
+  it("Is the output as expected for very large numbers", () => {
+    cy.get("#number8").click();
+    cy.get('#number0').click();
+    cy.get('#number0').click();
+    cy.get('#number0').click();
+    cy.get('#operator-multiply').click();
+    cy.get('#number9').click();
+    cy.get('#number0').click();
+    cy.get('#number0').click();
+    cy.get('#number0').click();
+    cy.get('#number0').click();
+
+    cy.get('#operator-equals').click();
+    cy.get('.display').should("contain", "720000000")
+  })
+
 })
