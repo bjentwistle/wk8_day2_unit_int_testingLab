@@ -90,10 +90,15 @@ function App() {
   };
 
   const divide = (number) => {
+    if (number === 0) {  //put if statement here to catch divide by zero
+      setRunningTotal("Error")
+      setCalculatedTotal(0)
+    } else {
     let calculatedNumber = parseFloat(previousTotal) / parseFloat(number);
     console.log(typeof calculatedNumber)
     setRunningTotal(calculatedNumber);
     setCalculatedTotal(calculatedNumber);
+  }
   };
 
   return (
